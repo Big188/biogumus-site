@@ -191,3 +191,48 @@
 
 </body>
 </html>
+@keyframes growUp {
+  0% { transform: scale(0.9); opacity: 0.5; }
+  50% { transform: scale(1.05); opacity: 0.9; }
+  100% { transform: scale(1); opacity: 1; }
+}
+@keyframes leafFloat {
+  0% { transform: rotate(0deg) translateY(0px); }
+  50% { transform: rotate(3deg) translateY(-10px); }
+  100% { transform: rotate(0deg) translateY(0px); }
+}
+.plant-box {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 30px;
+}
+.plant {
+  width: 160px;
+  animation: growUp 4s ease-in-out infinite alternate;
+}
+.leaf {
+  width: 120px;
+  animation: leafFloat 6s ease-in-out infinite;
+}
+<section id="animations">
+  <h2>🌿 Rivojlanayotgan o‘simliklar</h2>
+  <p>Biogumus yordamida o‘simliklar tezroq va sog‘lom rivojlanadi.</p>
+  <div class="plant-box">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/1/1c/Young_tomato_plant.jpg" alt="Tomat" class="plant">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Spinach_plant.jpg" alt="Ismaloq" class="plant">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/f/f6/Leaf_icon_green.svg" alt="Barg" class="leaf">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2b/Carrot_plant_icon.svg" alt="Sabzi" class="plant">
+  </div>
+</section>
+<section id="info">
+  <h2>📘 Nima uchun Biogumus?</h2>
+  <ul>
+    <li><strong>Yer uchun foyda:</strong> Strukturasini yaxshilaydi, suvni ushlab turadi</li>
+    <li><strong>Organik modda boyligi:</strong> Azot, fosfor, kaliyni o‘z ichiga oladi</li>
+    <li><strong>O‘simliklar immuniteti:</strong> Kasallikka chidamli bo‘ladi</li>
+    <li><strong>Hosildorlik oshadi:</strong> 2-4 baravar ko‘p hosil olish mumkin</li>
+    <li><strong>Tabiatga zarar qilmaydi:</strong> Kimyoviy o‘g‘it emas</li>
+  </ul>
+</section>
