@@ -79,12 +79,31 @@
       flex-wrap: wrap;
       justify-content: center;
     }
-    .plant-animate {
-      animation: grow 3s infinite alternate;
+    /* Анимации */
+    @keyframes growUp {
+      0% { transform: scale(0.9); opacity: 0.5; }
+      50% { transform: scale(1.05); opacity: 0.9; }
+      100% { transform: scale(1); opacity: 1; }
     }
-    @keyframes grow {
-      from { transform: scale(1); }
-      to { transform: scale(1.05); }
+    @keyframes leafFloat {
+      0% { transform: rotate(0deg) translateY(0px); }
+      50% { transform: rotate(3deg) translateY(-10px); }
+      100% { transform: rotate(0deg) translateY(0px); }
+    }
+    .plant-box {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 30px;
+    }
+    .plant {
+      width: 160px;
+      animation: growUp 4s ease-in-out infinite alternate;
+    }
+    .leaf {
+      width: 120px;
+      animation: leafFloat 6s ease-in-out infinite;
     }
   </style>
 </head>
@@ -100,6 +119,8 @@
   <a href="#products">Mahsulotlar</a>
   <a href="#usage">Qo‘llash</a>
   <a href="#gallery">Rasmlar</a>
+  <a href="#animations">Aksiya</a>
+  <a href="#info">Foyda</a>
   <a href="#faq">Savollar</a>
   <a href="#order">Buyurtma</a>
   <a href="#contact">Aloqa</a>
@@ -108,7 +129,6 @@
 <section id="about">
   <h2>Biz haqimizda</h2>
   <p>Biogumus.uz — Nukus shahridagi ekologik tabiiy o‘g‘it ishlab chiqaruvchilardan biri. Mahsulotimiz 100% organik bo‘lib, o‘simliklar uchun quvvat, yer uchun sog‘lom muhit yaratadi.</p>
-  <p>Fermalarimizda kaliforniya chuvalchanglari yordamida ishlab chiqarilgan biogumus barcha turdagi ekinlar uchun mos keladi.</p>
 </section>
 
 <section id="products">
@@ -130,9 +150,6 @@
     <li>Mevali daraxtlar – ildiz atrofida 1-2 kg</li>
     <li>Uy gullari – 50-100g aralashtirib</li>
   </ul>
-  <div class="plant-animate">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Vermicompost.jpg" alt="Biogumus" style="width: 200px; border-radius: 10px;">
-  </div>
 </section>
 
 <section id="gallery">
@@ -142,6 +159,28 @@
     <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Fertilizer_for_soil.jpg" alt="Tuproqqa biogumus">
     <img src="https://upload.wikimedia.org/wikipedia/commons/c/c4/Vegetables_garden.jpg" alt="Hosildorlik">
   </div>
+</section>
+
+<section id="animations">
+  <h2>🌿 Rivojlanayotgan o‘simliklar</h2>
+  <p>Biogumus yordamida o‘simliklar tezroq va sog‘lom rivojlanadi.</p>
+  <div class="plant-box">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/1/1c/Young_tomato_plant.jpg" alt="Tomat" class="plant">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Spinach_plant.jpg" alt="Ismaloq" class="plant">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/f/f6/Leaf_icon_green.svg" alt="Barg" class="leaf">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2b/Carrot_plant_icon.svg" alt="Sabzi" class="plant">
+  </div>
+</section>
+
+<section id="info">
+  <h2>📘 Nima uchun Biogumus?</h2>
+  <ul>
+    <li><strong>Yer uchun foyda:</strong> Strukturasini yaxshilaydi, suvni ushlab turadi</li>
+    <li><strong>Organik modda boyligi:</strong> Azot, fosfor, kaliyni o‘z ichiga oladi</li>
+    <li><strong>O‘simliklar immuniteti:</strong> Kasallikka chidamli bo‘ladi</li>
+    <li><strong>Hosildorlik oshadi:</strong> 2-4 baravar ko‘p hosil olish mumkin</li>
+    <li><strong>Tabiatga zarar qilmaydi:</strong> Kimyoviy o‘g‘it emas</li>
+  </ul>
 </section>
 
 <section id="faq">
@@ -172,7 +211,7 @@
 </footer>
 
 <script>
-  // Show animation when scrolling
+  // Sektsiyalarni skrollda paydo qilish
   const sections = document.querySelectorAll('section');
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -183,7 +222,6 @@
   }, {
     threshold: 0.1
   });
-
   sections.forEach(section => {
     observer.observe(section);
   });
@@ -191,48 +229,3 @@
 
 </body>
 </html>
-@keyframes growUp {
-  0% { transform: scale(0.9); opacity: 0.5; }
-  50% { transform: scale(1.05); opacity: 0.9; }
-  100% { transform: scale(1); opacity: 1; }
-}
-@keyframes leafFloat {
-  0% { transform: rotate(0deg) translateY(0px); }
-  50% { transform: rotate(3deg) translateY(-10px); }
-  100% { transform: rotate(0deg) translateY(0px); }
-}
-.plant-box {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  margin-top: 30px;
-}
-.plant {
-  width: 160px;
-  animation: growUp 4s ease-in-out infinite alternate;
-}
-.leaf {
-  width: 120px;
-  animation: leafFloat 6s ease-in-out infinite;
-}
-<section id="animations">
-  <h2>🌿 Rivojlanayotgan o‘simliklar</h2>
-  <p>Biogumus yordamida o‘simliklar tezroq va sog‘lom rivojlanadi.</p>
-  <div class="plant-box">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/1/1c/Young_tomato_plant.jpg" alt="Tomat" class="plant">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Spinach_plant.jpg" alt="Ismaloq" class="plant">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/f/f6/Leaf_icon_green.svg" alt="Barg" class="leaf">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2b/Carrot_plant_icon.svg" alt="Sabzi" class="plant">
-  </div>
-</section>
-<section id="info">
-  <h2>📘 Nima uchun Biogumus?</h2>
-  <ul>
-    <li><strong>Yer uchun foyda:</strong> Strukturasini yaxshilaydi, suvni ushlab turadi</li>
-    <li><strong>Organik modda boyligi:</strong> Azot, fosfor, kaliyni o‘z ichiga oladi</li>
-    <li><strong>O‘simliklar immuniteti:</strong> Kasallikka chidamli bo‘ladi</li>
-    <li><strong>Hosildorlik oshadi:</strong> 2-4 baravar ko‘p hosil olish mumkin</li>
-    <li><strong>Tabiatga zarar qilmaydi:</strong> Kimyoviy o‘g‘it emas</li>
-  </ul>
-</section>
