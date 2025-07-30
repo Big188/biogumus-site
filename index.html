@@ -5,29 +5,86 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Biogumus.uz – Tabiiy O'g'itlar</title>
   <style>
-    body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #f0f0f0; color: #333; }
-    header, footer { background-color: #2e7d32; color: white; padding: 20px 10px; text-align: center; }
-    nav { background: #388e3c; display: flex; flex-wrap: wrap; justify-content: center; padding: 10px 0; }
-    nav a { color: white; margin: 10px 15px; text-decoration: none; font-weight: bold; }
-    section { padding: 20px; background: white; margin: 10px auto; max-width: 1000px; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); }
-    h2 { color: #2e7d32; }
-    .gallery img { max-width: 180px; margin: 5px; border-radius: 4px; }
-    .price-table td { padding: 8px 16px; }
-    .contact { line-height: 1.6; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: #f8f9fa;
+      color: #333;
+      scroll-behavior: smooth;
+    }
+    header, footer {
+      background: linear-gradient(to right, #2e7d32, #66bb6a);
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    nav {
+      background: #388e3c;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 10px 0;
+    }
+    nav a {
+      color: white;
+      margin: 10px 15px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #c8e6c9;
+    }
+    section {
+      padding: 40px 20px;
+      background: white;
+      margin: 20px auto;
+      max-width: 1000px;
+      border-radius: 12px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s ease;
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    h2 {
+      color: #2e7d32;
+    }
     .btn {
-        display: inline-block;
-        padding: 10px 20px;
-        margin-top: 10px;
-        background-color: #2e7d32;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        text-decoration: none;
-        font-weight: bold;
-        transition: background-color 0.3s ease;
+      display: inline-block;
+      padding: 10px 20px;
+      margin-top: 10px;
+      background-color: #2e7d32;
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
     }
     .btn:hover {
-        background-color: #1b5e20;
+      background-color: #1b5e20;
+    }
+    .gallery img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 10px;
+      margin: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .flex-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .plant-animate {
+      animation: grow 3s infinite alternate;
+    }
+    @keyframes grow {
+      from { transform: scale(1); }
+      to { transform: scale(1.05); }
     }
   </style>
 </head>
@@ -35,87 +92,102 @@
 
 <header>
   <h1>Biogumus.uz</h1>
-  <p>Tabiiy o‘g‘it – Sifatli hosil kaliti</p>
+  <p>Tabiiy o‘g‘it – Hosildorlikning siri</p>
 </header>
 
 <nav>
   <a href="#about">Biz haqimizda</a>
   <a href="#products">Mahsulotlar</a>
-  <a href="#how">Qo‘llash</a>
+  <a href="#usage">Qo‘llash</a>
+  <a href="#gallery">Rasmlar</a>
   <a href="#faq">Savollar</a>
   <a href="#order">Buyurtma</a>
-  <a href="#gallery">Rasmlar</a>
-  <a href="#reviews">Fikrlar</a>
   <a href="#contact">Aloqa</a>
 </nav>
 
 <section id="about">
   <h2>Biz haqimizda</h2>
-  <p>Biogumus.uz – Nukusda joylashgan tabiiy o‘g‘itlar ishlab chiqaruvchisi. 100% ekologik, samarali va xavfsiz mahsulotlar bilan xizmatdamiz.</p>
-  <a href="#order" class="btn">Buyurtma berish</a>
+  <p>Biogumus.uz — Nukus shahridagi ekologik tabiiy o‘g‘it ishlab chiqaruvchilardan biri. Mahsulotimiz 100% organik bo‘lib, o‘simliklar uchun quvvat, yer uchun sog‘lom muhit yaratadi.</p>
+  <p>Fermalarimizda kaliforniya chuvalchanglari yordamida ishlab chiqarilgan biogumus barcha turdagi ekinlar uchun mos keladi.</p>
 </section>
 
 <section id="products">
-  <h2>Mahsulotlar va narxlar</h2>
-  <table class="price-table">
-    <tr><td>1 kg</td><td>1000 so‘m</td></tr>
-    <tr><td>5 kg</td><td>5000 so‘m</td></tr>
-    <tr><td>10 kg</td><td>10000 so‘m</td></tr>
-    <tr><td>Omborda</td><td>Kelishiladi</td></tr>
-  </table>
-  <a href="#contact" class="btn">Bog‘lanish</a>
+  <h2>Mahsulotlar</h2>
+  <ul>
+    <li>1 kg — 1000 so‘m</li>
+    <li>5 kg — 5000 so‘m</li>
+    <li>10 kg — 10000 so‘m</li>
+    <li>Ombor narxi — kelishilgan holda</li>
+  </ul>
+  <a href="#order" class="btn">Buyurtma berish</a>
 </section>
 
-<section id="how">
-  <h2>Qanday qo‘llaniladi</h2>
-  <p>Biogumus sabzavot, mevali daraxtlar, gulli o‘simliklar uchun ishlatiladi. 1m² uchun o‘rtacha 200-400g kifoya.</p>
+<section id="usage">
+  <h2>Qanday ishlatiladi?</h2>
+  <p>Biogumusni quyidagi usullarda qo‘llang:</p>
+  <ul>
+    <li>Pomidor, bodring, sabzi – 1m² uchun 300g</li>
+    <li>Mevali daraxtlar – ildiz atrofida 1-2 kg</li>
+    <li>Uy gullari – 50-100g aralashtirib</li>
+  </ul>
+  <div class="plant-animate">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Vermicompost.jpg" alt="Biogumus" style="width: 200px; border-radius: 10px;">
+  </div>
+</section>
+
+<section id="gallery">
+  <h2>Rasmlar</h2>
+  <div class="flex-gallery">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/Worm_bin.jpg" alt="Qurtlar">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Fertilizer_for_soil.jpg" alt="Tuproqqa biogumus">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c4/Vegetables_garden.jpg" alt="Hosildorlik">
+  </div>
 </section>
 
 <section id="faq">
   <h2>Ko‘p so‘raladigan savollar</h2>
   <ul>
-    <li><strong>Biogumus nima?</strong> – Qurtlar yordamida tayyorlangan tabiiy o‘g‘it.</li>
-    <li><strong>Nima foyda?</strong> – Yerga sog‘lom, hosilga baraka.</li>
-    <li><strong>Kimlar uchun?</strong> – Fermerlar, bog‘bonlar, uy sharoitidagi o‘simlikchilar uchun.</li>
+    <li><strong>Biogumus xavfsizmi?</strong> – Mutlaqo xavfsiz va toksinsiz.</li>
+    <li><strong>Nega aynan biogumus?</strong> – 4 baravar ko‘proq hosil beradi.</li>
+    <li><strong>Yerni yaxshilaydimi?</strong> – Ha, strukturasini yumshatadi va suvni ushlab turadi.</li>
   </ul>
 </section>
 
 <section id="order">
   <h2>Buyurtma berish</h2>
-  <p>Buyurtma berish uchun qo‘ng‘iroq qiling yoki Telegramga yozing:</p>
-  <p><strong>Tel:</strong> <a href="tel:+998940017657">+998 94 001 76 57</a></p>
-  <p><strong>Telegram:</strong> <a href="https://t.me/username" target="_blank">@username</a></p>
-  <a href="#contact" class="btn">Manzilga o'tish</a>
-</section>
-
-<section id="gallery">
-  <h2>Rasmlar</h2>
-  <div class="gallery">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Vermicompost.jpg" alt="Biogumus">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/Worm_bin.jpg" alt="Qurtlar">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Fertilizer_for_soil.jpg" alt="O‘g‘it">
-  </div>
-</section>
-
-<section id="reviews">
-  <h2>Mijozlar fikrlari</h2>
-  <p><strong>Ali:</strong> “Biogumusdan keyin pomidorim juda ko‘p hosil berdi!”</p>
-  <p><strong>Nodira:</strong> “Yerdagi tuzlik kamaydi, sabzavotlar baraka topdi!”</p>
+  <p>Buyurtma berish uchun bizga yozing yoki qo‘ng‘iroq qiling:</p>
+  <p><strong>Telefon:</strong> <a href="tel:+998940017657">+998 94 001 76 57</a></p>
+  <p><strong>Telegram:</strong> <a href="https://t.me/tshamuratov" target="_blank">@tshamuratov</a></p>
 </section>
 
 <section id="contact">
   <h2>Aloqa</h2>
-  <div class="contact">
-    <p><strong>Manzil:</strong> Nukus, Ellikqala ko‘chasi, 20-uy</p>
-    <p><strong>Telefon:</strong> <a href="tel:+998940017657">+998 94 001 76 57</a></p>
-    <p><strong>Email:</strong> biogumus@nukus.uz</p>
-    <p><strong>Telegram:</strong> <a href="https://t.me/username" target="_blank">@username</a></p>
-  </div>
+  <p><strong>Manzil:</strong> Nukus shahri, Ellikqala ko‘chasi, 20-uy</p>
+  <p><strong>Email:</strong> biogumus@nukus.uz</p>
+  <p><strong>Telegram:</strong> <a href="https://t.me/tshamuratov">@tshamuratov</a></p>
 </section>
 
 <footer>
   <p>&copy; 2025 Biogumus.uz – Barcha huquqlar himoyalangan.</p>
 </footer>
+
+<script>
+  // Show animation when scrolling
+  const sections = document.querySelectorAll('section');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  sections.forEach(section => {
+    observer.observe(section);
+  });
+</script>
 
 </body>
 </html>
